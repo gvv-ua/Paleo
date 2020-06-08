@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigationDestinationHome"
+    app:startDestination="@id/navigationTaxa">
+
+    <fragment
+        android:id="@+id/navigationTaxa"
+        android:name="ua.gvv.paleo.ui.taxa.TaxonFragment"
+        android:label="@string/taxa_title"
+        tools:layout="@layout/fragment_taxon" />
+
+
+</navigation>
