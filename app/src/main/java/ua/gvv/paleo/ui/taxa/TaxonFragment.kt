@@ -27,7 +27,7 @@ class TaxonFragment: Fragment(R.layout.fragment_taxon) {
         initAdapter()
         initListeners()
 //        viewModel.setTaxonId(91486)
-        viewModel.setTaxonId("txn:36651")
+        viewModel.setTaxonId("txn:104153")
 //        viewModel.setTaxonId("txn:69296")
         initObservers()
     }
@@ -47,7 +47,7 @@ class TaxonFragment: Fragment(R.layout.fragment_taxon) {
     }
 
     private fun initObservers() {
-        viewModel.taxa.observe(viewLifecycleOwner, Observer { taxa ->
+        viewModel.taxon.observe(viewLifecycleOwner, Observer { taxa ->
             taxa?.let { updateTaxaUI(it) }
         })
         viewModel.children.observe(viewLifecycleOwner, Observer { items ->
@@ -63,6 +63,7 @@ class TaxonFragment: Fragment(R.layout.fragment_taxon) {
         taxonName.text = taxon.name
         taxonRank.text = taxon.rank.toString()
         taxonIsExtant.text = taxon.isExtant.toString()
+        taxonParent.text = taxon.parentName
         taxonFossilOccurrencesNumber.text = taxon.fossilOccurrencesNumber.toString()
     }
 
@@ -73,5 +74,8 @@ class TaxonFragment: Fragment(R.layout.fragment_taxon) {
 //        taxaChildrenButton.setOnClickListener {
 //            viewModel.getTaxaChildrenList(91486)
 //        }
+        taxonParent.setOnClickListener {
+            viewModel.setParentTaxon()
+        }
     }
 }

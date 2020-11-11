@@ -74,6 +74,23 @@
         app:layout_constraintTop_toTopOf="@id/taxonFossilOccurrencesNumberLabel"
         tools:text="134" />
 
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/taxonParentLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Parent:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/taxonFossilOccurrencesNumberLabel" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/taxonParent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@id/taxonParentLabel"
+        app:layout_constraintStart_toEndOf="@id/taxonParentLabel"
+        app:layout_constraintTop_toTopOf="@id/taxonParentLabel"
+        tools:text="134" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/taxonChildList"
         android:layout_width="match_parent"
@@ -84,6 +101,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/taxonFossilOccurrencesNumberLabel" />
+        app:layout_constraintTop_toBottomOf="@id/taxonParent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

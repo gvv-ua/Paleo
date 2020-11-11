@@ -14,6 +14,7 @@ data class Taxon(
     @Json(name = "rnk") val rank: Int,
     @Json(name = "nam") val name: String,
     @Json(name = "par") val parentId: String?,
+    @Json(name = "prl") val parentName: String?,
     @Json(name = "rid") val reference: String,
     @Json(name = "ext") val isExtant: Int?,
     @Json(name = "noc") val fossilOccurrencesNumber: Int,

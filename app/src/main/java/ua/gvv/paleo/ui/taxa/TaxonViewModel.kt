@@ -16,9 +16,9 @@ class TaxonViewModel(
     private val dispatchersProvider: DispatchersProvider
 ): ViewModel() {
 
-    private val _taxa = MutableLiveData<Taxon?>()
-    val taxa: LiveData<Taxon?>
-    get() = _taxa
+    private val _taxon = MutableLiveData<Taxon?>()
+    val taxon: LiveData<Taxon?>
+    get() = _taxon
 
     private val _children = MutableLiveData<List<Taxon>>()
     val children: LiveData<List<Taxon>>
@@ -42,7 +42,7 @@ class TaxonViewModel(
             is Success -> {
                 val items = response.data.taxa
                 if (items.size == 1) {
-                    _taxa.postValue(items[0])
+                    _taxon.postValue(items[0])
                 }
             }
             is Error -> {
@@ -57,7 +57,8 @@ class TaxonViewModel(
         }
         when (response) {
             is Success -> {
-                _children.postValue(response.data.taxa.sortedBy { it.name })
+//                _children.postValue(response.data.taxa.sortedBy { it.name })
+                _children.postValue(response.data.taxa)
             }
             is Error -> {
 
@@ -94,6 +95,12 @@ class TaxonViewModel(
             is Error -> {
 
             }
+        }
+    }
+
+    fun setParentTaxon() {
+        taxon.value?.parentId?.let { id ->
+            setTaxonId(id)
         }
     }
 }

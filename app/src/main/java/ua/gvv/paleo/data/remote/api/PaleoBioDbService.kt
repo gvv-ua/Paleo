@@ -7,7 +7,7 @@ import ua.gvv.paleo.data.remote.api.response.TaxaResponse
 import ua.gvv.paleo.data.remote.api.response.TaxonImageResponse
 
 interface PaleoBioDbService {
-    @GET("taxa/single.json?show=full")
+    @GET("taxa/single.json?show=full,parent")
     suspend fun getTaxonById(@Query("taxon_id") taxonId: String): Response<TaxaResponse>
 
     //rank
